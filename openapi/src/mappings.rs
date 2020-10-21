@@ -42,6 +42,8 @@ pub fn object_mappings() -> ObjectMap {
         ("fee_refund", "application_fee_refund"),
         ("issuing_authorization_merchant_data", "merchant_data"),
         ("issuing_authorization_wallet_provider", "wallet_provider"),
+        ("issuing_authorization_amount_details", "issuing_amount_details"),
+        ("issuing_transaction_amount_details", "issuing_amount_details"),
         ("item", "checkout_session_item"),
         ("invoice_collection_method", "collection_method"),
         ("invoices_resource_invoice_tax_id_type", "tax_id_type"),
@@ -64,8 +66,12 @@ pub fn object_mappings() -> ObjectMap {
         ("payment_method_card_wallet_samsung_pay", "wallet_samsung_pay"),
         ("payment_method_card_wallet_visa_checkout", "wallet_visa_checkout"),
         ("payment_method_card_wallet_type", "wallet_type"),
+        ("payment_method_details", "details"),
+        ("payment_method_details_card_present", "card_present"),
+        ("payment_method_details_three_d_secure", "three_d_secure"),
         ("payment_pages_payment_page_resources_shipping_address_collection", "shipping_address_collection"),
         ("tax_id_data_type", "tax_id_type"),
+        ("three_d_secure_details", "three_d_secure"),
 
         // Config for `account` params
         ("create_account_company", "company_params"),
@@ -114,6 +120,8 @@ pub fn object_mappings() -> ObjectMap {
         // Config for `payment_intent` params
         ("create_order_items", "order_item_params"),
         ("order_items_params_type", "order_item_type"),
+        ("create_payment_intent_payment_method_options_card_installments_plan", "payment_method_details_card_installments_plan"),
+        ("update_payment_intent_payment_method_options_card_installments_plan", "payment_method_details_card_installments_plan"),
 
         // Config for `source` params
         ("create_source_mandate", "source_mandate_params"),
@@ -173,6 +181,7 @@ pub fn object_mappings() -> ObjectMap {
         ("subscription_schedule_end_behavior_filter", "subscription_schedule_renewal_behavior"),
         ("subscription_schedules_resource_default_settings", "subscription_schedule_default_settings"),
         ("subscription_schedule_default_settings_params_billing_thresholds", "subscription_schedule_billing_thresholds"),
+        ("create_subscription_transfer_data", "subscription_transfer_data"),
 
         // Config for `webhook` params
         ("webhook_endpoint_enabled_events", "event_filter"),

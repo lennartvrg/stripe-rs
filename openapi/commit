@@ -42,11 +42,13 @@
 ./openapi/add platform_tax_fee
 ./openapi/add price
 ./openapi/add product
+./openapi/add promotion_code
 ./openapi/add recipient
 ./openapi/add refund
 ./openapi/add reserve_transaction
 ./openapi/add review
 ./openapi/add scheduled_query_run
+./openapi/add setup_attempt
 ./openapi/add setup_intent
 ./openapi/add sku
 ./openapi/add source
@@ -59,6 +61,7 @@
 ./openapi/add tax_id
 ./openapi/add tax_deducted_at_source
 ./openapi/add tax_rate
+./openapi/add three_d_secure
 ./openapi/add token
 ./openapi/add transfer
 ./openapi/add transfer_reversal

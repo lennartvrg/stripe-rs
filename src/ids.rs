@@ -474,6 +474,7 @@ def_id!(CheckoutSessionId, "cs_");
 def_id!(CheckoutSessionItemId: String); // TODO: Figure out what prefix this id has
 def_id!(CouponId: String); // N.B. A coupon id can be user-provided so can be any arbitrary string
 def_id!(CustomerId, "cus_");
+def_id!(DiscountId, "di_");
 def_id!(DisputeId, "dp_");
 def_id!(EventId, "evt_");
 def_id!(FileId, "file_");
@@ -516,10 +517,12 @@ def_id!(PersonId, "person_");
 def_id!(PlanId: String); // N.B. A plan id can be user-provided so can be any arbitrary string
 def_id!(PriceId: String); // TODO: Figure out what prefix this id has
 def_id!(ProductId: String); // N.B. A product id can be user-provided so can be any arbitrary string
+def_id!(PromotionCodeId: String);
 def_id!(RecipientId: String); // FIXME: This doesn't seem to be documented yet
 def_id!(RefundId, "re_");
 def_id!(ReviewId, "prv_");
 def_id!(ScheduledQueryRunId, "sqr_");
+def_id!(SetupAttemptId, "setatt_");
 def_id!(SetupIntentId, "seti_");
 def_id!(SkuId, "sku_");
 def_id!(SourceId, "src_");
@@ -529,6 +532,7 @@ def_id!(SubscriptionLineId, "sli_");
 def_id!(SubscriptionScheduleId, "sub_sched_");
 def_id!(TaxIdId, "txi_");
 def_id!(TaxRateId, "txr_");
+def_id!(ThreeDSecureId: String);
 def_id!(
     enum TokenId {
         Card(CardTokenId),

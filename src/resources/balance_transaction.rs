@@ -14,8 +14,6 @@ use crate::resources::{
 use serde_derive::{Deserialize, Serialize};
 
 /// The resource representing a Stripe "BalanceTransaction".
-///
-/// For more details see [https://stripe.com/docs/api/balance_transactions/object](https://stripe.com/docs/api/balance_transactions/object).
 #[derive(Clone, Debug, Deserialize, Serialize)]
 pub struct BalanceTransaction {
     /// Unique identifier for the object.
@@ -74,7 +72,7 @@ pub struct BalanceTransaction {
     /// Either `available` or `pending`.
     pub status: BalanceTransactionStatus,
 
-    /// Transaction type: `adjustment`, `advance`, `advance_funding`, `application_fee`, `application_fee_refund`, `charge`, `connect_collection_transfer`, `issuing_authorization_hold`, `issuing_authorization_release`, `issuing_transaction`, `payment`, `payment_failure_refund`, `payment_refund`, `payout`, `payout_cancel`, `payout_failure`, `refund`, `refund_failure`, `reserve_transaction`, `reserved_funds`, `stripe_fee`, `stripe_fx_fee`, `tax_fee`, `topup`, `topup_reversal`, `transfer`, `transfer_cancel`, `transfer_failure`, or `transfer_refund`.
+    /// Transaction type: `adjustment`, `advance`, `advance_funding`, `anticipation_repayment`, `application_fee`, `application_fee_refund`, `charge`, `connect_collection_transfer`, `contribution`, `issuing_authorization_hold`, `issuing_authorization_release`, `issuing_dispute`, `issuing_transaction`, `payment`, `payment_failure_refund`, `payment_refund`, `payout`, `payout_cancel`, `payout_failure`, `refund`, `refund_failure`, `reserve_transaction`, `reserved_funds`, `stripe_fee`, `stripe_fx_fee`, `tax_fee`, `topup`, `topup_reversal`, `transfer`, `transfer_cancel`, `transfer_failure`, or `transfer_refund`.
     ///
     /// [Learn more](https://stripe.com/docs/reports/balance-transaction-types) about balance transaction types and what they represent.
     /// If you are looking to classify transactions for accounting purposes, you might want to consider `reporting_category` instead.
@@ -190,7 +188,7 @@ pub struct ListBalanceTransactions<'a> {
 
     /// Only returns transactions of the given type.
     ///
-    /// One of: `charge`, `refund`, `adjustment`, `application_fee`, `application_fee_refund`, `transfer`, `payment`, `payout`, `payout_failure`, `stripe_fee`, or `network_cost`.
+    /// One of: `adjustment`, `advance`, `advance_funding`, `anticipation_repayment`, `application_fee`, `application_fee_refund`, `charge`, `connect_collection_transfer`, `contribution`, `issuing_authorization_hold`, `issuing_authorization_release`, `issuing_dispute`, `issuing_transaction`, `payment`, `payment_failure_refund`, `payment_refund`, `payout`, `payout_cancel`, `payout_failure`, `refund`, `refund_failure`, `reserve_transaction`, `reserved_funds`, `stripe_fee`, `stripe_fx_fee`, `tax_fee`, `topup`, `topup_reversal`, `transfer`, `transfer_cancel`, `transfer_failure`, or `transfer_refund`.
     #[serde(rename = "type")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub type_: Option<&'a str>,
@@ -243,12 +241,15 @@ pub enum BalanceTransactionType {
     Adjustment,
     Advance,
     AdvanceFunding,
+    AnticipationRepayment,
     ApplicationFee,
     ApplicationFeeRefund,
     Charge,
     ConnectCollectionTransfer,
+    Contribution,
     IssuingAuthorizationHold,
     IssuingAuthorizationRelease,
+    IssuingDispute,
     IssuingTransaction,
     Payment,
     PaymentFailureRefund,
@@ -277,12 +278,15 @@ impl BalanceTransactionType {
             BalanceTransactionType::Adjustment => "adjustment",
             BalanceTransactionType::Advance => "advance",
             BalanceTransactionType::AdvanceFunding => "advance_funding",
+            BalanceTransactionType::AnticipationRepayment => "anticipation_repayment",
             BalanceTransactionType::ApplicationFee => "application_fee",
             BalanceTransactionType::ApplicationFeeRefund => "application_fee_refund",
             BalanceTransactionType::Charge => "charge",
             BalanceTransactionType::ConnectCollectionTransfer => "connect_collection_transfer",
+            BalanceTransactionType::Contribution => "contribution",
             BalanceTransactionType::IssuingAuthorizationHold => "issuing_authorization_hold",
             BalanceTransactionType::IssuingAuthorizationRelease => "issuing_authorization_release",
+            BalanceTransactionType::IssuingDispute => "issuing_dispute",
             BalanceTransactionType::IssuingTransaction => "issuing_transaction",
             BalanceTransactionType::Payment => "payment",
             BalanceTransactionType::PaymentFailureRefund => "payment_failure_refund",
